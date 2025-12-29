@@ -1,0 +1,68 @@
+========================================================
+  ENOB vs SAMPLING RATE TRADE-OFF ANALYSIS
+  Dynamic Decimation Architecture
+========================================================
+
+Configuration
+  Modulator Rate 8.192 MHz
+  Test Points 3 sampling rates
+  Range 500.0 Hz to 2.0 kHz
+
+Running Simulink model INTER_IIT_2ndorder_without_noise_DSM
+✓ Simulink simulation completed
+
+Bitstream Ready 8893443 samples @ 8.192 MHz
+
+Starting Trade-off Analysis...
+================================================
+
+[13] Fs_out = 500.0 Hz → OSR = 16384
+  ✓ Chain CIC(256)→6xHB→FIR(1)
+    Decimation CIC(256) × HB(2^6) × FIR(1) = 16384
+  → ENOB = 12.23 bits  SNDR = 75.38 dB  SFDR = 78.25 dB
+     Complexity 142 taps  Output samples 543
+
+[23] Fs_out = 1000.0 Hz → OSR = 8192
+  ✓ Chain CIC(256)→5xHB→FIR(1)
+    Decimation CIC(256) × HB(2^5) × FIR(1) = 8192
+  → ENOB = 14.63 bits  SNDR = 89.81 dB  SFDR = 95.01 dB
+     Complexity 119 taps  Output samples 1086
+
+[33] Fs_out = 2000.0 Hz → OSR = 4096
+  ✓ Chain CIC(256)→4xHB→FIR(1)
+    Decimation CIC(256) × HB(2^4) × FIR(1) = 4096
+  → ENOB = 16.44 bits  SNDR = 100.72 dB  SFDR = 108.00 dB
+     Complexity 96 taps  Output samples 2172
+
+================================================
+✓ Trade-off Analysis Complete!
+
+Successfully processed 33 test points
+
+========================================================
+              RESULTS SUMMARY
+========================================================
+
+Fs_out      OSR       ENOB      SNDR      SFDR      Taps        Architecture  
+[Hz]                  [bits]    [dB]      [dB]                                
+----------------------------------------------------------------------------------------
+500 Hz      16384        12.23     75.38     78.25         142  CIC(256)→6xHB→FIR(1)
+1.0 kHz     8192         14.63     89.81     95.01         119  CIC(256)→5xHB→FIR(1)
+2.0 kHz     4096         16.44    100.72    108.00          96  CIC(256)→4xHB→FIR(1)
+========================================================
+
+🏆 Peak Performance
+   Fs = 2000.0 Hz  ENOB = 16.44 bits  OSR = 4096
+   Architecture CIC(256)→4xHB→FIR(1)
+
+⚡ Most Efficient
+   Fs = 2000.0 Hz  ENOB = 16.44 bits  171.230 ENOBkTap
+
+Generating plots...
+✓ Plots complete
+
+✓ Results saved ENOB_SamplingRate_20251207_222535.csv
+
+========================================================
+            ANALYSIS COMPLETE ✓
+========================================================
